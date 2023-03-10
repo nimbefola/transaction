@@ -13,6 +13,6 @@ create TABLE transaction (
     "otp" VARCHAR(255)  NULL,
     "otp_status" VARCHAR(255)  NULL,
     "status" VARCHAR(255)  NULL,
-    "meta_data" VARCHAR(255)  NULL,
+    "meta_data" TEXT NULL,
     primary key (id)
 );

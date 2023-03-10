@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "transaction")
-@Slf4j
+@CrossOrigin(origins = "*")
 public class TransactionEndpoint {
     @Autowired
     private TransactionService transactionService;
@@ -37,9 +37,14 @@ public class TransactionEndpoint {
         return new ResponseEntity<>(transactionService.updateTransactionStatus(id, status), HttpStatus.OK);
     }
 
-    @PutMapping(path = "/validate", produces = "application/json")
-    public ResponseEntity<String> validateTransaction(@RequestParam("id") String id, @RequestParam("otp") String otp){
-        return new ResponseEntity<>(transactionService.validate(id, otp), HttpStatus.OK);
+    @PutMapping(path = "/deposit/status", produces = "application/json")
+    public ResponseEntity<String> getDepositStatus(@RequestParam("id") String id, @RequestParam("otp") String otp){
+        return new ResponseEntity<>(transactionService.validateDeposit(id, otp), HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/externalTransaction/{externalTransactionId}", produces = "application/json")
+    public ResponseEntity<Transaction> getBySourceId(@PathVariable("externalTransactionId") String externalTransactionId){
+        return new ResponseEntity<>(transactionService.getBySourceAccount(externalTransactionId), HttpStatus.OK);
     }
 
 }

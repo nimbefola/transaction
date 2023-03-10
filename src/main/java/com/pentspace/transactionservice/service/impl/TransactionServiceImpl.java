@@ -50,7 +50,7 @@ public class TransactionServiceImpl extends BaseHandler implements TransactionSe
     }
 
     @Override
-    public String validate(String id, String otp) {
+    public String validateDeposit(String id, String otp) {
         Transaction transaction = getById(id);
         if(!transaction.getOtp().equalsIgnoreCase(otp)){
             log.info(" Input OTP [{}]", otp);
@@ -64,5 +64,10 @@ public class TransactionServiceImpl extends BaseHandler implements TransactionSe
         // Todo lets add expiry time to OTP
         transactionRepository.save(transaction);
         return "Successful";
+    }
+
+    @Override
+    public Transaction getBySourceAccount(String sourceAccount) {
+        return transactionRepository.findBySourceAccount(sourceAccount).orElse(new Transaction());
     }
 }
