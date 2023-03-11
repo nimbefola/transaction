@@ -14,5 +14,6 @@ create TABLE transaction (
     "otp_status" VARCHAR(255)  NULL,
     "status" VARCHAR(255)  NULL,
     "meta_data" TEXT NULL,
+    "transaction_source" VARCHAR (255) NULL,
     primary key (id)
 );

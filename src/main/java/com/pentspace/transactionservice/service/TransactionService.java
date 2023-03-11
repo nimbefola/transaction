@@ -10,7 +10,6 @@ public interface TransactionService {
     Transaction getById(String transactionId);
     List<Transaction> getAll();
     Transaction updateTransactionStatus(String transactionId, String status);
-    String validateDeposit(String id, String otp);
     Transaction getBySourceAccount(String sourceAccount);
 
 }

@@ -33,14 +33,14 @@ public class TransactionEndpoint {
     }
 
     @PutMapping(path = "/status/update", produces = "application/json")
-    public ResponseEntity<Transaction> updateAccountStatus(@RequestParam("id") String id, @RequestParam("status") String status){
+    public ResponseEntity<Transaction> updateTransactionStatus(@RequestParam("id") String id, @RequestParam("status") String status){
         return new ResponseEntity<>(transactionService.updateTransactionStatus(id, status), HttpStatus.OK);
     }
 
-    @PutMapping(path = "/deposit/status", produces = "application/json")
-    public ResponseEntity<String> getDepositStatus(@RequestParam("id") String id, @RequestParam("otp") String otp){
-        return new ResponseEntity<>(transactionService.validateDeposit(id, otp), HttpStatus.OK);
-    }
+//    @PutMapping(path = "/deposit/status", produces = "application/json")
+//    public ResponseEntity<String> getDepositStatus(@RequestParam("id") String id, @RequestParam("otp") String otp){
+//        return new ResponseEntity<>(transactionService.validateDeposit(id, otp), HttpStatus.OK);
+//    }
 
     @GetMapping(path = "/externalTransaction/{externalTransactionId}", produces = "application/json")
     public ResponseEntity<Transaction> getBySourceId(@PathVariable("externalTransactionId") String externalTransactionId){

@@ -24,6 +24,8 @@ public class Transaction extends Base {
     private String otp;
     private String otpStatus;
     private String metaData;
+    @Enumerated(EnumType.STRING)
+    private String transactionSource;
 
     public Status getStatus() {
         return status;
@@ -87,5 +89,13 @@ public class Transaction extends Base {
 
     public void setMetaData(String metaData) {
         this.metaData = metaData;
+    }
+
+    public String getTransactionSource() {
+        return transactionSource;
+    }
+
+    public void setTransactionSource(String transactionSource) {
+        this.transactionSource = transactionSource;
     }
 }
