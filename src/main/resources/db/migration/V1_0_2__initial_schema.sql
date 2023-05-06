@@ -1,5 +1,7 @@
 
-CREATE SEQUENCE hibernate_sequence START 1 INCREMENT 1;
+--CREATE SEQUENCE hibernate_sequence START 1 INCREMENT 1;
+
+
 DROP TABLE IF EXISTS  transaction;
 create TABLE transaction (
     "id" VARCHAR(255) NOT NULL,

@@ -1,6 +1,7 @@
 package com.pentspace.transactionservice.entities;
 
 import com.pentspace.transactionservice.entities.enums.Status;
+import com.pentspace.transactionservice.entities.enums.TransactionSource;
 import com.pentspace.transactionservice.entities.enums.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,7 @@ public class Transaction extends Base {
     private String otpStatus;
     private String metaData;
     @Enumerated(EnumType.STRING)
-    private String transactionSource;
+    private TransactionSource transactionSource; //change to transaction source from String
 
     public Status getStatus() {
         return status;
@@ -91,11 +92,20 @@ public class Transaction extends Base {
         this.metaData = metaData;
     }
 
-    public String getTransactionSource() {
+//    public String getTransactionSource() {
+//        return transactionSource;
+//    }
+//
+//    public void setTransactionSource(String transactionSource) {
+//        this.transactionSource = transactionSource;
+//    }
+
+
+    public TransactionSource getTransactionSource() {
         return transactionSource;
     }
 
-    public void setTransactionSource(String transactionSource) {
+    public void setTransactionSource(TransactionSource transactionSource) {
         this.transactionSource = transactionSource;
     }
 }
